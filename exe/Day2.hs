@@ -1,14 +1,10 @@
 module Main where
 
-import AOC.Utils (invertOrd, liftEither, newlineParser, spaceParser)
-import Control.Applicative (Alternative ((<|>)), optional)
+import AOC.Utils (liftEither, newlineParser, spaceParser)
 import Control.Monad ((<=<))
-import Data.Attoparsec.ByteString (Parser, choice, many1, parseOnly, sepBy1, word8)
-import Data.Attoparsec.ByteString.Char8 (decimal)
+import Data.Attoparsec.ByteString (Parser, choice, many1, parseOnly, word8)
 import Data.Bifunctor (second)
-import Data.ByteString (ByteString)
 import Data.ByteString qualified as BS
-import Data.List (sortBy)
 import Data.Word (Word8)
 import Paths_aoc22 (getDataFileName)
 
@@ -47,7 +43,7 @@ shapeCompare :: Shape -> Shape -> Ordering
 shapeCompare Paper Rock = GT
 shapeCompare Rock Paper = LT
 -- We reuse the derived Ord for all other cases
-shapeCompare x y = x `compare` y
+shapeCompare u v = u `compare` v
 
 rowValue :: (Shape, Shape) -> Int
 rowValue (theirShape, myShape) = shapeValue myShape + matchValue

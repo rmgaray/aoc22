@@ -1,11 +1,10 @@
 module Main where
 
 import AOC.Utils (invertOrd, liftEither)
-import Control.Applicative (Alternative ((<|>)), optional)
+import Control.Applicative (optional)
 import Control.Monad ((<=<))
 import Data.Attoparsec.ByteString (Parser, parseOnly, sepBy1, word8)
 import Data.Attoparsec.ByteString.Char8 (decimal)
-import Data.ByteString (ByteString)
 import Data.ByteString qualified as BS
 import Data.List (sortBy)
 import Data.Word (Word8)
@@ -20,10 +19,11 @@ entryParser = optional decimal `sepBy1` word8 newline
     newline = 10
 
 toCaloriesPerElf :: [Maybe Calories] -> [Calories]
-toCaloriesPerElf = fmap sum . foldl splitElves [[]]
+toCaloriesPerElf = fmap sum . foldl splitElves []
   where
     splitElves :: [[Int]] -> Maybe Calories -> [[Int]]
     splitElves (e : es) (Just c) = (c : e) : es
+    splitElves [] (Just c) = [[c]]
     splitElves es Nothing = [] : es
 
 main :: IO ()
