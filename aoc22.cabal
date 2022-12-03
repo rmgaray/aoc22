@@ -28,11 +28,14 @@ data-files: inputs/*.txt
 
 common lang
     default-extensions:  ImportQualifiedPost
+                         ViewPatterns
+    ghc-options:         -Wall
 
 common deps
     build-depends:     base >= 4.16.0,
                        bytestring,
                        attoparsec,
+                       containers
     other-modules:     Paths_aoc22
     autogen-modules:   Paths_aoc22
    
@@ -56,3 +59,7 @@ executable day1
 executable day2
     import:  exe
     main-is: Day2.hs
+
+executable day3
+    import:  exe
+    main-is: Day3.hs

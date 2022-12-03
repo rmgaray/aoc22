@@ -1,4 +1,4 @@
-module AOC.Utils (liftEither, invertOrd, newlineParser, spaceParser) where
+module AOC.Utils (liftEither, invertOrd, newline, newlineParser, space, spaceParser) where
 
 import Data.Attoparsec.ByteString (Parser, word8)
 import Data.Word (Word8)
@@ -12,8 +12,14 @@ invertOrd x y = case compare x y of
   GT -> LT
   EQ -> EQ
 
+newline :: Word8
+newline = 10
+
 newlineParser :: Parser Word8
-newlineParser = word8 10
+newlineParser = word8 newline
+
+space :: Word8
+space = 32
 
 spaceParser :: Parser Word8
-spaceParser = word8 32
+spaceParser = word8 space
