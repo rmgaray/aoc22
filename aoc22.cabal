@@ -28,7 +28,9 @@ data-files: inputs/*.txt
 
 common lang
     default-extensions:  ImportQualifiedPost
+                         OverloadedStrings
                          ViewPatterns
+                         NamedFieldPuns
     ghc-options:         -Wall
 
 common deps
@@ -67,3 +69,7 @@ executable day3
 executable day4
     import:  exe
     main-is: Day4.hs
+
+executable day5
+    import:  exe
+    main-is: Day5.hs
