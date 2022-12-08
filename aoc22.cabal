@@ -31,6 +31,8 @@ common lang
                          OverloadedStrings
                          ViewPatterns
                          NamedFieldPuns
+                         RankNTypes
+                         ScopedTypeVariables
     ghc-options:         -Wall
 
 common deps
@@ -53,6 +55,7 @@ common lib
 library
     import:            lib
     exposed-modules:   AOC.Utils
+                       AOC.HuetTree
 
 executable day1
     import:  exe
@@ -77,3 +80,7 @@ executable day5
 executable day6
     import:  exe
     main-is: Day6.hs
+
+executable day7
+    import:  exe
+    main-is: Day7.hs
