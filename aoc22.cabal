@@ -33,6 +33,10 @@ common lang
                          NamedFieldPuns
                          RankNTypes
                          ScopedTypeVariables
+                         DeriveFunctor
+                         DeriveFoldable
+                         LambdaCase
+                         NumericUnderscores
     ghc-options:         -Wall
 
 common deps
